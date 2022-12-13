@@ -1,0 +1,46 @@
+<div class="container" *ngIf="tour">
+  <form [formGroup]="tourForm" (ngSubmit)="handleSubmit()">
+      <div class="form-group">
+          <label for="name">Name</label>
+          <input
+          formControlName="name"
+          type="text" class="form-control" name="name" placeholder="Name" >
+          <p *ngIf="!tourForm.controls['name']?.valid && (tourForm.controls['name']?.dirty
+          ||tourForm.controls['name']?.touched) && tourForm.controls['name']?.errors?.['required']"
+          class="help-block text-danger">Name is required</p>
+          <p *ngIf="!tourForm.controls['name']?.valid && (tourForm.controls['name']?.dirty
+          ||tourForm.controls['name']?.touched) && tourForm.controls['name']?.errors?.['minlength']"
+          class="help-block text-danger">Minlength not valid</p>
+      </div>
+      <div class="form-group">
+          <label for="price">Price</label>
+          <input
+          formControlName="price"
+          type="text" class="form-control" placeholder="Price" >
+           <p *ngIf="!tourForm.controls['price']?.valid && (tourForm.controls['price']?.dirty
+          ||tourForm.controls['price']?.touched) && tourForm.controls['price']?.errors?.['required']"
+          class="help-block text-danger">price is required</p>
+
+          <p *ngIf="!tourForm.controls['price']?.valid && (tourForm.controls['price']?.dirty
+          ||tourForm.controls['price']?.touched) && tourForm.controls['price']?.errors?.['minlength']"
+          class="help-block text-danger">Minlength not valid</p>
+      </div>
+      <div class="form-group">
+          <label for="description">Description</label>
+          <input
+          formControlName="description"
+          type="text" class="form-control" placeholder="Description" >
+           <p *ngIf="!tourForm.controls['description']?.valid && (tourForm.controls['description']?.dirty
+          ||tourForm.controls['description']?.touched) && tourForm.controls['prdescriptionice']?.errors?.['required']"
+          class="help-block text-danger">description is required</p>
+          <p *ngIf="!tourForm.controls['description']?.valid && (tourForm.controls['description']?.dirty
+          ||tourForm.controls['description']?.touched) && tourForm.controls['description']?.errors?.['minlength']"
+          class="help-block text-danger">Minlength not valid</p>
+      </div>
+      <div class="form-group">
+          <button [disabled]="!tourForm.valid" type="submit" class="btn btn-primary">Submit</button>
+          <a [routerLink]="['/']" class="btn btn-secondary">Quay lại</a>
+      </div>
+
+  </form>
+</div>

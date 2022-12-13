@@ -1,0 +1,49 @@
+<div class="container">
+  <form #formTour="ngForm" (ngSubmit)="handleSubmit(formTour.value)">
+      <div class="form-group">
+          <label for="name">Name</label>
+          <input
+          ngModel
+          #name="ngModel"
+          required
+          minlength="3"
+          type="text" class="form-control" name="name" placeholder="Name" >
+          <p *ngIf="name.invalid && (name.dirty || name.touched) && name.errors?.['required']"
+          class="help-block text-danger">Name is required</p>
+          <p *ngIf="name.invalid && (name.dirty || name.touched) && name.errors?.['minlength']"
+          class="help-block text-danger">Minlength not valid</p>
+      </div>
+      <div class="form-group">
+          <label for="price">Price</label>
+          <input
+          ngModel
+          #price="ngModel"
+          required
+          minlength="3"
+          type="text" class="form-control" name="price" placeholder="Price" >
+           <p *ngIf="price.invalid && (price.dirty || price.touched) && price.errors?.['required']"
+           class="help-block text-danger">price is required</p>
+
+           <p *ngIf="price.invalid && (price.dirty || price.touched) && price.errors?.['minlength']"
+           class="help-block text-danger">Minlength not valid</p>
+      </div>
+      <div class="form-group">
+          <label for="description">Description</label>
+          <input
+          ngModel
+          #description="ngModel"
+          required
+          minlength="3"
+          type="text" class="form-control" name="description" placeholder="Description" >
+           <p *ngIf="description.invalid && (description.dirty || description.touched) && description.errors?.['required']"
+           class="help-block text-danger">Description is required</p>
+
+           <p *ngIf="description.invalid && (description.dirty || description.touched) && description.errors?.['minlength']"
+           class="help-block text-danger">Minlength not valid</p>
+      </div>
+      <div class="form-group">
+          <button type="submit" [disabled]="!formTour.valid" class="btn btn-primary">Submit</button>
+          <a [routerLink]="['/']" class="btn btn-secondary">Quay lại</a>
+      </div>
+  </form>
+</div>

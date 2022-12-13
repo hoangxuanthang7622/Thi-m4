@@ -1,0 +1,24 @@
+<a [routerLink]="[ '/add']" class="btn btn-primary">Add new</a>
+<div class="container">
+    <table class="table table-light">
+        <thead>
+            <tr>
+                <td> #</td>
+                <td>Name</td>
+                <td>Price</td>
+                <td>Action</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let tour of tours, let idx = index">
+                <td> {{tour.id}}</td>
+                <td> <a [routerLink]="[tour.id + '/show']">{{ tour.name }}</a></td>
+                <td>{{ tour.price }}</td>
+                <td>
+                    <a [routerLink]="[tour.id + '/edit']" class="btn btn-primary">Edit</a>
+                    <a [routerLink]="[tour.id + '/delete']" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
